@@ -1,0 +1,20 @@
+<h1>{{ title }}</h1>
+<h3 class="h3-header">Fruit Form still working after using ROUTER</h3>
+<ul>
+  <li *ngFor="let fruit of fruits">{{ fruit | titlecase }}</li>
+</ul>
+<form>
+  <div>
+    <label for="fruitName">Enter a fruit name</label>
+    <input
+      type="text"
+      id="fruitName"
+      name="fruitName"
+      placeholder="Fruit name here"
+      [(ngModel)]="fruitName"
+    />
+  </div>
+  <div>
+    <button (click)="createFruit(fruitName)" type="submit">Submit</button>
+  </div>
+</form>

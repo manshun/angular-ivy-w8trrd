@@ -1,0 +1,73 @@
+<div class="employees-container">
+  <h1 class="title">Employees</h1>
+
+  <div class="employees-list">
+    <table *ngIf="employees && employees.length > 0">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Department</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.empCode }}</td>
+          <td>{{ employee.empName }}</td>
+          <td>{{ employee.empDept }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="employee-form">
+    <form
+      novalidate
+      (ngSubmit)="addEmployee()"
+      [formGroup]="employeeFormGroup"
+      class="employee-add-form"
+    >
+      <div class="form-group">
+        <label for="empcode" class="form-label">Employee Code</label
+        ><input
+          type="text"
+          class="form-control"
+          formControlName="empCode"
+          id="empcode"
+          name="empcode"
+          placeholder="Enter employee code"
+        />
+      </div>
+      <div class="form-group">
+        <label for="empname" class="form-label">Employee Name</label
+        ><input
+          type="text"
+          class="form-control"
+          formControlName="empName"
+          id="empname"
+          name="empname"
+          placeholder="Enter employee name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="empdept" class="form-label">Employee Department</label
+        ><input
+          type="text"
+          class="form-control"
+          formControlName="empDept"
+          id="empdept"
+          name="empdept"
+          placeholder="Enter employee department"
+        />
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-submit"
+          [disabled]="employeeFormGroup.invalid"
+        >
+          Add Employee
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
